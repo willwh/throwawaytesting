@@ -18,8 +18,8 @@ jobs:
           source-url: https://nuget.pkg.github.com/willwh/index.json
         env:
           NUGET_AUTH_TOKEN: ${{secrets.GITHUB_TOKEN}}
-      - run: dotnet build --configuration Release throwawaytesting
+      - run: dotnet build --configuration Release
       - name: Create the package
-        run: dotnet pack --configuration Release throwawaytesting
+        run: dotnet pack --configuration Release
       - name: Publish the package to GPR
         run: dotnet nuget push throwawaytesting/bin/Release/*.nupkg
