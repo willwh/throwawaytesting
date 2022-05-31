@@ -15,11 +15,11 @@ jobs:
       - uses: actions/setup-dotnet@v2
         with:
           dotnet-version: '3.1.x' # SDK Version to use.
-          source-url: https://nuget.pkg.github.com/yyj/index.json
+          source-url: https://nuget.pkg.github.com/willwh/index.json
         env:
           NUGET_AUTH_TOKEN: ${{secrets.GITHUB_TOKEN}}
-      - run: dotnet build --configuration Release dotnetmtr
+      - run: dotnet build --configuration Release throwawaytesting
       - name: Create the package
-        run: dotnet pack --configuration Release dotnetmr
+        run: dotnet pack --configuration Release throwawaytesting
       - name: Publish the package to GPR
-        run: dotnet nuget push dotnetmtr/bin/Release/*.nupkg
+        run: dotnet nuget push throwawaytesting/bin/Release/*.nupkg
